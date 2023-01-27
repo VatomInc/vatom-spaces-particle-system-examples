@@ -1,0 +1,14 @@
+{
+  "id": "particle_systems",
+  "name": "Particle Systems",
+  "version": "1.0.0",
+  "beta": true,
+  "description": "Add pre-built Particle Systems examples",
+  "longDescription": "Add pre-built Particle Systems examples to the world",
+  "configuration": "Use Insert -> Objects to add a pre-built Particle System",
+  "category": "Art",
+  "businessId": "RpJkUS4spZ",
+  "price": 0,
+  "releaseNotes": "Beta release",
+  "entrypoint": "https://plugins.vatom.com/RpJkUS4spZ/feac071ab002e59ffcbca453cf66b360/plugin.js"
+}
