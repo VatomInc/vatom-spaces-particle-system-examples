@@ -12,6 +12,7 @@ export default class MyPlugin extends BasePlugin {
     /** Plugin info */
     static id = "particle_systems"
     static name = "Particle Systems"
+    static description = "Add pre-built Particle System examples"
 
     /** Called on load */
     onLoad() {
@@ -72,6 +73,20 @@ export default class MyPlugin extends BasePlugin {
             action: () => this.onPSFog1Press()
         })
 
+        this.menus.register({
+            id: 'smoke1',
+            title: 'Particle System',
+            icon: this.paths.absolute('./icon.svg'),
+            text: 'Particle System - Smoke',
+            order: 0,
+            section: 'insert-object',
+            adminOnly: false,
+            inAccordion: false,
+            currentUser: false,
+            otherUsers: false,
+            action: () => this.onPSSmoke1Press()
+        })
+
     }
 
     // Fire 1
@@ -126,6 +141,58 @@ export default class MyPlugin extends BasePlugin {
 
                 this.objects.create({
                     name: value + '_b',
+                    type:'particles',
+                    scale:1,
+                    x:pos.x,
+                    height:pos.y,
+                    y:pos.z,
+                    particle_emitter_type: 'Sphere',
+                    particle_texture: "https://storage.googleapis.com/ydangle-high-fidelity-test-2.appspot.com/server/v9R8iywss6/smoke.png",
+                    particle_behavior: "",
+                    particle_mass: 1,
+                    particle_start_scale: 1.0,
+                    particle_end_scale: 1.0,
+                    particle_gravity: 0,
+                    particle_emit_min_span: 1,
+                    particle_emit_max_span: 5,
+                    particle_emit_delay: 0.1,
+                    particle_life_time: 4,
+                    particle_color1: '#ff0000',
+                    particle_color2: '#ffff00',
+                    particle_velocity_type: 'Radial',       // Vector, Radial
+                    particle_min_speed: 1,
+                    particle_max_speed: 2,
+                    particle_radial_angle: 10,
+                    particle_direction_x: 0,
+                    particle_direction_y: 1,
+                    particle_direction_z: 0,
+                    particle_box_size_x: 5,
+                    particle_box_size_y: 1,
+                    particle_box_size_z: 5,
+                    particle_sphere_radius: 1,
+                    particle_blend_mode: 'BLENDMODE_STANDARD',
+                    particle_start_alpha: 0.3,
+                    particle_end_alpha: 0,
+                    use_original_scale: true,
+                    temporary:false, collide:false, clientOnly:false
+                });
+            });
+        });
+    }
+
+    onPSSmoke1Press() {
+        const value = this.menus.prompt({
+            icon: 'info',
+            title: 'Particle System Name',
+            text: 'Please enter the new particle system name',
+            inputType: 'text',
+            initialValue: 'ps_smoke',
+            placeholder: 'Type something...'
+        }).then((value) => {
+            this.user.getPosition().then((pos) =>
+            {
+                this.objects.create({
+                    name: value,
                     type:'particles',
                     scale:1,
                     x:pos.x,
