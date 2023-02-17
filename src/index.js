@@ -10,7 +10,7 @@
 export default class MyPlugin extends BasePlugin {
 
     /** Plugin info */
-    static id = "particle_systems"
+    static id = "v_particle_systems"
     static name = "Particle Systems"
     static description = "Add pre-built Particle System examples"
 
